@@ -4,6 +4,8 @@ let palette = document.querySelectorAll('.palette div');
 
 let resize = document.querySelector('.resize');
 
+let shake = document.querySelector('.shake');
+
 resize.addEventListener('click', () => {
     let val;
     for(;;) {
@@ -15,11 +17,11 @@ resize.addEventListener('click', () => {
     createGrid(val);
 });
 
-palette.forEach(c => {
-    c.style.width = 100 + 'px';
-    c.style.height = 100 + 'px';
-    c.style.backgroundColor = c.getAttribute('data');
+shake.addEventListener('click', () => {
+    sketch.childNodes.forEach(n => n.style.backgroundColor = "white");
 });
+
+
 
 function createGrid(n) {
     for(i = 0; i < n*n; i ++) {
@@ -28,6 +30,10 @@ function createGrid(n) {
         cell.style.width = (960 / n) + 'px';
         cell.style.height = (960 / n) + 'px';
         sketch.appendChild(cell);
+        
+        cell.addEventListener('mouseover', () => {
+            cell.style.backgroundColor = "black";
+        });
     }
 }
 
