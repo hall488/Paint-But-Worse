@@ -1,5 +1,12 @@
-.header {
+body {
+    background-color: aquamarine;
+}
 
+.header {
+    text-align: center;
+    margin: 64px;
+    font-size: 50px;
+    font-weight: bold;
 }
 
 .container {
@@ -9,7 +16,13 @@
 }
 
 .toolbar {
-
+    display: flex;
+    flex-direction: column;
+    border: 5px solid black;
+    padding: 16px;
+    border-radius: 10px;
+    margin-right: 64px;
+    background-color: white;
 }
 
 .palette {
@@ -18,6 +31,10 @@
 
 .palette > div {
 
+}
+
+.selected {
+    border: 5px dotted black;
 }
 
 .resize {
@@ -33,8 +50,12 @@
     flex-wrap: wrap;
     width: 960px;
     height: 960px;
+    border: 5px solid black;
 }
 
 .cell {
-    background-color: red;
+    background-color: white;
+}
+.cell:hover {
+    background-color: lightblue;
 }
