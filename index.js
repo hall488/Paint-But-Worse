@@ -6,6 +6,8 @@ let resize = document.querySelector('.resize');
 
 let shake = document.querySelector('.shake');
 
+let color = 'black';
+
 resize.addEventListener('click', () => {
     let val;
     for(;;) {
@@ -21,7 +23,15 @@ shake.addEventListener('click', () => {
     sketch.childNodes.forEach(n => n.style.backgroundColor = "white");
 });
 
-
+palette.forEach(c => {
+    
+    c.style.backgroundColor = c.getAttribute('data');
+    c.addEventListener('click', () => {
+        palette.forEach(p => p.classList.remove('selected'));
+        c.classList += 'selected';
+        color = c.style.backgroundColor;
+    });
+});
 
 function createGrid(n) {
     for(i = 0; i < n*n; i ++) {
@@ -32,7 +42,7 @@ function createGrid(n) {
         sketch.appendChild(cell);
         
         cell.addEventListener('mouseover', () => {
-            cell.style.backgroundColor = "black";
+            cell.style.backgroundColor = color;
         });
     }
 }

@@ -30,11 +30,13 @@ body {
 }
 
 .palette > div {
-
+    box-sizing: border-box;
+    width: 100px;
+    height: 100px;
 }
 
 .selected {
-    border: 5px dotted black;
+    border: 5px solid black;
 }
 
 .resize {
