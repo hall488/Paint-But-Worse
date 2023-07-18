@@ -1,0 +1,40 @@
+.header {
+
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.toolbar {
+
+}
+
+.palette {
+
+}
+
+.palette > div {
+
+}
+
+.resize {
+
+}
+
+.shake {
+
+}
+
+.sketch {
+    display: flex;
+    flex-wrap: wrap;
+    width: 960px;
+    height: 960px;
+}
+
+.cell {
+    background-color: red;
+}
