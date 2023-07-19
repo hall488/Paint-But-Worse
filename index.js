@@ -31,7 +31,7 @@ let grid = ()=> {
 resize.addEventListener('click', grid);
 
 shake.addEventListener('click', () => {
-    sketch.childNodes.forEach(n => n.style.backgroundColor = "white");
+    sketch.childNodes.forEach(r => r.childNodes.forEach(c => c.style.backgroundColor = "white"));
 });
 
 save.addEventListener('click', saveImage);
