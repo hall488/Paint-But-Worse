@@ -72,3 +72,7 @@ button {
 .cell:hover {
     background-color: lightblue;
 }
+
+dd{
+    background-color: purple;
+}
