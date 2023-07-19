@@ -1,6 +1,10 @@
 let sketch = document.querySelector('.sketch');
 
-let palette = document.querySelectorAll('.palette div');
+let toolbar = document.querySelector('.toolbar');
+
+let paletteColors = document.querySelectorAll('.palette div');
+
+let palette = document.querySelector('.palette');
 
 let resize = document.querySelector('.resize');
 
@@ -8,7 +12,10 @@ let shake = document.querySelector('.shake');
 
 let color = 'black';
 
-resize.addEventListener('click', () => {
+window.addEventListener('resize', adjustToolbar);
+
+
+let grid = ()=> {
     let val;
     for(;;) {
         val = prompt("Enter n for a n by n grid!");
@@ -17,34 +24,57 @@ resize.addEventListener('click', () => {
     }
     sketch.innerHTML = '';
     createGrid(val);
-});
+};
+
+resize.addEventListener('click', grid);
 
 shake.addEventListener('click', () => {
     sketch.childNodes.forEach(n => n.style.backgroundColor = "white");
 });
 
-palette.forEach(c => {
+paletteColors.forEach(c => {
     
     c.style.backgroundColor = c.getAttribute('data');
     c.addEventListener('click', () => {
-        palette.forEach(p => p.classList.remove('selected'));
+        paletteColors.forEach(p => p.classList.remove('selected'));
         c.classList += 'selected';
         color = c.style.backgroundColor;
     });
 });
 
 function createGrid(n) {
-    for(i = 0; i < n*n; i ++) {
-        let cell = document.createElement('div');
-        cell.classList = 'cell';
-        cell.style.width = (960 / n) + 'px';
-        cell.style.height = (960 / n) + 'px';
-        sketch.appendChild(cell);
+    for(i = 0; i < n; i ++) {
+        let row = document.createElement('div');
+        row.classList = 'row';
+        for(j = 0; j < n; j++) {
+            let cell = document.createElement('div');
+            cell.classList = 'cell';
+            cell.style.flex = "1 1 auto";
+            row.appendChild(cell);
+
+            cell.addEventListener('mouseover', () => {
+                cell.style.backgroundColor = color;
+            });
+        }
         
-        cell.addEventListener('mouseover', () => {
-            cell.style.backgroundColor = color;
-        });
+        sketch.appendChild(row);
     }
 }
 
+function adjustToolbar() {
+    console.log(toolbar.offsetTop);
+    if(toolbar.offsetTop > 600) {
+        toolbar.style.flex = '0 1 840px';
+        palette.style.flexDirection = 'row';
+    } else {
+        toolbar.style.flex = '0 1 100px';
+        palette.style.flexDirection = 'column';
+    }
+}
+
+function saveImage() {
+    
+}
+
+adjustToolbar();
 createGrid(16);
