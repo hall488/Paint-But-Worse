@@ -111,7 +111,11 @@ function saveImage() {
 
     let dataURL = ctx.toDataURL('image/png');
     let url = dataURL.replace(/^data:image\/png/,'data:application/octet-stream');
-    window.location.assign(url);
+
+    const link = document.createElement('a');
+    link.href = url;
+    link.download = 'image.png';
+    link.click();
 }
 
 adjustToolbar();
