@@ -61,7 +61,7 @@ button {
     flex-wrap: wrap;
     width: 100%;
     border: 5px solid black;
-    max-width: 960px;
+    max-width: 50%;
     aspect-ratio: 1;
     flex: 0 1 auto;
 }
