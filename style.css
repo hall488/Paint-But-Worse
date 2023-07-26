@@ -25,6 +25,7 @@ body {
     background-color: white;
     flex-direction: column;
     flex: 0 1 100px;
+    max-width: 20%;
 }
 
 .palette {
@@ -59,9 +60,9 @@ button {
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
-    width: 100%;
+    width: 50%;
     border: 5px solid black;
-    max-width: 50%;
+    max-width: 40%;
     aspect-ratio: 1;
     flex: 0 1 auto;
 }
@@ -75,4 +76,28 @@ button {
 
 dd{
     background-color: purple;
+}
+
+.footer {
+    box-sizing: border-box;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    width: 100%;
+    padding: 20px;
+    font-size: 20px;
+}
+
+.fa-github {
+    color: black;
+    font-size: 24px;
+    transition: transform 0.3s ease-in-out;
+}
+
+.fa-github:hover {
+    transform: rotate(360deg) scale(1.2);
 }
